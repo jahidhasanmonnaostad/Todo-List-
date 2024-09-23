@@ -60,7 +60,7 @@ class LoginActivityScreen extends StatelessWidget {
       mainAxisAlignment:MainAxisAlignment.center,
 
       children: [
-        Text("Login Here",
+        Text("Login",
             style:TextStyle(color:Colors.black,
                 fontSize:20,
                 fontWeight:FontWeight.bold)
@@ -91,6 +91,15 @@ class LoginActivityScreen extends StatelessWidget {
 
                   ),
         SizedBox(height:20,),
+        Container(
+          child:Row(
+          mainAxisAlignment:MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Password "),
+            TextButton(onPressed:(){}, child:Text("Forget Password",style:TextStyle(color:Colors.red),)),
+          ],
+        ),),
+        SizedBox(height:5,),
         TextFormField(
           controller:password,
           obscureText:true,
