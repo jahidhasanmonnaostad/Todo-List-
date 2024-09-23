@@ -95,7 +95,7 @@ class LoginActivityScreen extends StatelessWidget {
           child:Row(
           mainAxisAlignment:MainAxisAlignment.spaceBetween,
           children: [
-            Text("Password "),
+            Text("Password "),//use RichText-TextSpan-regognizer-tapGettureDetection to implement forgert
             TextButton(onPressed:(){}, child:Text("Forget Password",style:TextStyle(color:Colors.red),)),
           ],
         ),),
