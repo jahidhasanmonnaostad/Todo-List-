@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 void main (){
   runApp(MyApp());
-  
+
 }
 
 class MyApp extends StatelessWidget {
@@ -12,12 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   return MaterialApp(
-     debugShowCheckedModeBanner:false,
-     title: "Login From",
-     home:LoginActivity(),
+    return MaterialApp(
+      debugShowCheckedModeBanner:false,
+      title: "Login From",
+      home:LoginActivity(),
 
-   );
+    );
 
   }
 }
@@ -31,22 +31,26 @@ class LoginActivity extends StatefulWidget {
 class _LoginActivityState extends State<LoginActivity> {
   @override
   Widget build(BuildContext context) {
-   return Scaffold(
-     appBar:AppBar(
-       title:Text('login Page '),
-       backgroundColor:Colors.green,
+    return Scaffold(
+      appBar:AppBar(
+        title:Text('Register Page flutter'),
+        backgroundColor:Colors.green,
 
-     ),
-     body:LoginActivityScreen(),
-   );
+      ),
+      body:LoginActivityScreen(),
+    );
 
   }
 }
 class LoginActivityScreen extends StatelessWidget {
-   LoginActivityScreen({super.key});
-   final _FromKey=GlobalKey<FormState>();
-  final  TextEditingController userName=TextEditingController();
-  final TextEditingController password=TextEditingController();
+  LoginActivityScreen({super.key});
+  final _FromKey=GlobalKey<FormState>();
+  final  TextEditingController _fastName=TextEditingController();
+  final TextEditingController  _email=TextEditingController();
+  final TextEditingController  _LastName=TextEditingController();
+  final TextEditingController  _Password=TextEditingController();
+  final TextEditingController  _ReTypePassword=TextEditingController();
+
 
 
 
@@ -54,84 +58,140 @@ class LoginActivityScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(padding: EdgeInsets.all(20),
 
-    child:Form(
-      key:_FromKey,
-      child:Column(
-      mainAxisAlignment:MainAxisAlignment.center,
+        child:Form(
+          key:_FromKey,
+          child:Column(
+            mainAxisAlignment:MainAxisAlignment.center,
 
-      children: [
-        Text("Login Here",
-            style:TextStyle(color:Colors.black,
-                fontSize:20,
-                fontWeight:FontWeight.bold)
+            children: [
+              Text("Register",
+                  style:TextStyle(color:Colors.black,
+                      fontSize:20,
+                      fontWeight:FontWeight.bold)
 
-        ),
+              ),
 
-        SizedBox(height:40,),
-        TextFormField(
-          controller:userName,
-          decoration:InputDecoration(
-            label:Text("UserName"),
-            hintText:"UserName",
-            border:OutlineInputBorder(
-
-            ),
-          ),
-          validator:(value) {
-
-            if (value == null || value.isEmpty) {
-
-              return 'Please enter your username';
-
-            }
-
-            return null;
-
-          },
+              SizedBox(height:40,),
+              TextFormField(
+                controller:_fastName,
+                decoration:InputDecoration(
+                  label:Text("Name"),
+                  hintText:"Name",
+                  border:OutlineInputBorder(
 
                   ),
-        SizedBox(height:20,),
-        TextFormField(
-          controller:password,
-          obscureText:true,
-          decoration:InputDecoration(
-            label:Text("Password "),
-            hintText:"Password",
-            border:OutlineInputBorder(
+                ),
+                validator:(value) {
 
-            ),
-          ),
+                  if (value == null || value.isEmpty) {
 
-        ),
-        SizedBox(height:20,),
+                    return 'Please enter your username';
 
-        ElevatedButton(
-          onPressed: (){}, child:Text("Login",style:TextStyle(color:Colors.white),),
-          style:ElevatedButton.styleFrom(
-            elevation:10,
-            backgroundColor:Colors.green,
-          )
-        ),
-        SizedBox(height:20,),
-        RichText(text:TextSpan(
-          children:[
-            TextSpan(
-              text:"Dont have a Account"
-            ),
+                  }
 
-            TextSpan(
-              text: "? register ",
-              style: TextStyle(color: Colors.blue),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
+                  return null;
+
                 },
-            )
-          ]
-        ))
-      ],
 
-    ),
-    )
+              ),
+              SizedBox(height:20,),
+              TextFormField(
+                controller:_LastName,
+                decoration:InputDecoration(
+                  label:Text("LastName"),
+                  hintText:"LastName",
+                  border:OutlineInputBorder(
+
+                  ),
+                ),
+                validator:(value) {
+
+                  if (value == null || value.isEmpty) {
+
+                    return 'Please enter your username';
+
+                  }
+
+                  return null;
+
+                },
+
+              ),
+              SizedBox(height:20,),
+
+              TextFormField(
+                controller:_email,
+
+                obscureText:true,
+                decoration:InputDecoration(
+                   prefixIcon:Icon(Icons.email),
+                  prefixText:"email",
+                  label:Text("email"),
+                  border:OutlineInputBorder(
+
+                  ),
+                ),
+
+              ),
+              SizedBox(height:20,),
+              TextFormField(
+                controller:_Password,
+
+                obscureText:true,
+                decoration:InputDecoration(
+                  prefixIcon:Icon(Icons.password_rounded),
+                  prefixText:"Password ",
+                  label:Text("Password "),
+                  border:OutlineInputBorder(
+
+                  ),
+                ),
+
+              ),
+              SizedBox(height:20,),
+
+              TextFormField(
+                controller:_ReTypePassword,
+
+                obscureText:true,
+                decoration:InputDecoration(
+                  prefixIcon:Icon(Icons.password),
+                  prefixText:"RetypePassword ",
+                  label:Text("password"),
+                  border:OutlineInputBorder(
+
+                  ),
+                ),
+
+              ),
+              SizedBox(height:20,),
+              ElevatedButton(
+                  onPressed: (){}, child:Text("Register",style:TextStyle(color:Colors.white),),
+                  style:ElevatedButton.styleFrom(
+                    elevation:10,
+                    backgroundColor:Colors.green,
+                  )
+              ),
+              SizedBox(height:20,),
+              RichText(text:TextSpan(
+                  children:[
+                    TextSpan(
+                        text:"Dont have a Account"
+                    ),
+
+                    TextSpan(
+                      text: "? register ",
+                      style: TextStyle(color: Colors.blue),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                        },
+                    )
+                  ]
+              ))
+            ],
+
+          ),
+        )
     );
   }
 }
